@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>appa — Dominic Holifield</title>
+<link rel="stylesheet" href="../style.css">
+<body>
+  <header>
+    <nav><a href="../index.html">← Dominic Holifield</a></nav>
+    <h1>appa</h1>
+    <p>Open-source VEX chassis movement library &mdash;
+    <a href="https://github.com/dholifield/appa">GitHub</a></p>
+  </header>
+
+  <main>
+    <p>Appa is a C++ library for autonomous robot control on VEX robots using the
+    <a href="https://pros.cs.purdue.edu">PROS</a> framework. It abstracts odometry,
+    PID control, and path following into a clean API so teams can focus on strategy
+    rather than low-level motion code.</p>
+
+    <h2>What it does</h2>
+    <p>The library handles localization and movement for a differential drive chassis.
+    Tracking runs asynchronously in the background using either two encoder wheels + IMU,
+    or three encoder wheels. On top of that, it exposes movement commands:</p>
+    <ul>
+      <li>Relative and absolute distance moves</li>
+      <li>Point-to-point navigation</li>
+      <li>Pose-based movement via a boomerang controller</li>
+      <li>Pure pursuit path following for smooth curves</li>
+      <li>Heading and point-facing turns</li>
+    </ul>
+
+    <h2>Options system</h2>
+    <p>Movement parameters (speed, acceleration, PID gains, exit tolerances) are configured
+    through composable options objects rather than long argument lists. Presets can be
+    defined once and combined inline:</p>
+    <pre><code>chassis.move(24, FAST | PRECISE);
+chassis.turn(90, SLOW);</code></pre>
+
+    <h2>Extensibility</h2>
+    <p>Custom localization and tracking systems can be dropped in by subclassing the abstract
+    <code>Localization</code> and <code>Tracker</code> base classes—only a <code>get()</code>
+    method returning pose deltas is required.</p>
+
+    <h2>Install</h2>
+    <pre><code>pros c add-depot appa https://appa.odom.tech/appa.json</code></pre>
+  </main>
+
+  <footer>Dominic Holifield · 2026</footer>
+</body>

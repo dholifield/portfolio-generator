@@ -1,0 +1,31 @@
+name: Update photo manifest
+
+on:
+  push:
+    branches: [main]
+    paths: [photos/**]
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate manifest
+        run: |
+          python3 -c "
+          import os, json
+          exts = {'.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'}
+          files = sorted(f for f in os.listdir('photos') if os.path.splitext(f)[1].lower() in exts)
+          print(json.dumps(files, indent=2))
+          " > photos/manifest.json
+
+      - name: Commit manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add photos/manifest.json
+          git diff --staged --quiet || git commit -m "Update photo manifest"
+          git push
