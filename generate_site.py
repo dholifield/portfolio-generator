@@ -149,7 +149,7 @@ PHOTOGRAPHY_TEMPLATE = """\
     </div>
   </main>
 
-  <footer>{name} · {year}</footer>
+  <footer><p>{name} · {year}</p><a href="https://github.com/dholifield/portfolio-generator">generate</a></footer>
 </body>
 """
 
