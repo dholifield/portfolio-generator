@@ -1,5 +1,26 @@
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/IBMPlexMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/IBMPlexMono-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: url('fonts/IBMPlexMono-Italic.woff2') format('woff2');
+}
+
 body {
-  font-family: courier new, monospace;
+  font-family: 'IBM Plex Mono', monospace;
   margin: 2em auto;
   max-width: 600px;
   padding: 0 1em;
@@ -189,6 +210,15 @@ code {
 .press-meta a.backup {
   color: #999;
   font-size: 0.9em;
+}
+
+/* resume */
+.resume {
+  width: 100%;
+  height: 80vh;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 1em;
 }
 
 /* footer */
