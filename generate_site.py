@@ -94,7 +94,7 @@ def build_project_item(slug, project):
         <div class="info">
           <h3>{title}</h3>
           <p>{desc}</p>
-          <a href="{link}">read more →</a>
+          <a href="{link}">read more ↝</a>
         </div>{img}
       </li>"""
 
