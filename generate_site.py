@@ -69,7 +69,7 @@ INDEX_TEMPLATE = """\
     </ul>
   </main>
 
-  <footer>{name} · {year}</footer>
+  <footer><p>{name} · {year}</p><a href="https://github.com/dholifield/portfolio-generator">generate</a></footer>
 </body>
 """
 
@@ -216,7 +216,7 @@ if resume_files:
     <iframe class="resume" src="../{resume_pdf}"></iframe>
   </main>
 
-  <footer>{name} · {year}</footer>
+  <footer><p>{name} · {year}</p><a href="https://github.com/dholifield/portfolio-generator">generate</a></footer>
 </body>"""
 
     resume_html = RESUME_TEMPLATE.format(
@@ -247,7 +247,7 @@ PROJECT_TEMPLATE = """\
     {body}
   </main>
 
-  <footer>{name} · {year}</footer>
+  <footer><p>{name} · {year}</p><a href="https://github.com/dholifield/portfolio-generator">generate</a></footer>
 </body>"""
 
 # generate html for each project with markdown content
